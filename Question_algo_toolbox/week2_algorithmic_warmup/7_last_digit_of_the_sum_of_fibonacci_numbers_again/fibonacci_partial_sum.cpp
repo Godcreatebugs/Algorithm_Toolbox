@@ -10,12 +10,12 @@ long long get_fibonacci_partial_sum_naive(long long from, long long to) {
 
     for (long long i = 0; i <= to; ++i) {
         if (i >= from) {
-            sum += current;
+            sum += current%10;
         }
 
-        long long new_current = next;
-        next = next + current;
-        current = new_current;
+        long long new_current = next%10;
+        next = next + current%10;
+        current = new_current%10;
     }
 
     return sum % 10;

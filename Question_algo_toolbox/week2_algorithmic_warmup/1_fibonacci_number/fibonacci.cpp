@@ -23,10 +23,17 @@ int fibonacci_naive(int n) {
 
 int fibonacci_fast(int n) {
     // write your code here
-
-    return 0;
+    if (n<=1) return n;
+    if (n>1){
+        int F0=0,F1=1,F2;
+        for(int i=2;i<=n;i++){
+            F2=F0+F1;
+            F0=F1;
+            F1=F2;
+        } 
+    return F2;
+    } 
 }
-
 void test_solution() {
     assert(fibonacci_fast(3) == 2);
     assert(fibonacci_fast(10) == 55);
@@ -35,11 +42,12 @@ void test_solution() {
 }
 
 int main() {
-    int n = 0;
-    std::cin >> n;
+    // int n = 0;
+    // std::cin >> n;
 
-    std::cout << fibonacci_naive(n) << '\n';
-    //test_solution();
+    //std::cout << fibonacci_naive(n) << '\n';
+    test_solution();
+    // std::cout << fibonacci_fast(n) << '\n';//test_solution();
     //std::cout << fibonacci_fast(n) << '\n';
     return 0;
 }
